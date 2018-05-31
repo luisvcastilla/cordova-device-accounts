@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="com.danielsogl.cordova.deviceaccounts"
+        id="cordova-plugin-device-accounts"
         version="1.0.0">
     <name>Device Accounts</name>
     <description>Cordova Device Accounts Plugin</description>
@@ -12,7 +12,7 @@
     <issue>https://github.com/danielsogl/cordova-device-accounts/issues</issue>
 
     <js-module src="www/DeviceAccounts.js" name="DeviceAccounts">
-        <clobbers target="plugins.DeviceAccounts" />
+        <clobbers target="cordova.DeviceAccounts" />
     </js-module>
 
     <!-- android -->
@@ -23,10 +23,9 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/DeviceAccounts.java" target-dir="src/com/danielsogl/cordova/deviceaccounts" />
-
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
         </config-file>
+        <source-file src="src/android/DeviceAccounts.java" target-dir="src/com/danielsogl/cordova/deviceaccounts" />
     </platform>
 </plugin>
