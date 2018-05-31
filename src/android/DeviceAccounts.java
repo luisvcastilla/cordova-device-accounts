@@ -6,7 +6,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
 
-import org.apache.cordova.PluginResult;
+// import org.apache.cordova.PluginResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,16 +50,16 @@ public class DeviceAccounts extends CordovaPlugin {
       List<Account> accounts = getAccounts(null);
       JSONArray result = formatResult(accounts);
       callbackContext.success(result);
-      result = new PluginResult(result);
-      callbackContext.sendPluginResult(result);
+//       result = new PluginResult(result);
+//       callbackContext.sendPluginResult(result);
       return true;
     } else if("getDeviceAccountsByType".equals(action)){
       final String type = args.getString(0);
       List<Account> accounts = getAccounts(type);
       JSONArray result = formatResult(accounts);
       callbackContext.success(result);
-      result = new PluginResult(result);
-      callbackContext.sendPluginResult(result);
+//       result = new PluginResult(result);
+//       callbackContext.sendPluginResult(result);
       return true;
     } else {
       callbackContext.error("DeviceAccounts." + action + " is not a supported function. Avaiable functions are getDeviceAccounts() and getDeviceAccountsByType(String type) !");
