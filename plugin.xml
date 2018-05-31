@@ -12,7 +12,7 @@
     <issue>https://github.com/danielsogl/cordova-device-accounts/issues</issue>
 
     <js-module src="www/DeviceAccounts.js" name="DeviceAccounts">
-        <clobbers target="cordova.DeviceAccounts" />
+        <clobbers target="window.DeviceAccounts" />
     </js-module>
 
     <!-- android -->
