@@ -32,6 +32,7 @@ public class DeviceAccounts extends CordovaPlugin {
      * @param webView The CordovaWebView Cordova is running in.
      */
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+          Log.i("INITIALIZING DEVICE ACCOUNTS","Executing FUNCTION");
     super.initialize(cordova, webView);
   }
 
