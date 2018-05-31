@@ -1,9 +1,13 @@
 package com.danielsogl.cordova.deviceaccounts;
 
+
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
+
+import org.apache.cordova.PluginResult;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,6 +16,7 @@ import android.accounts.AccountManager;
 import android.accounts.Account;
 import java.util.List;
 import java.util.ArrayList;
+import android.util.Log;
 
 /**
  * See :
@@ -39,16 +44,22 @@ public class DeviceAccounts extends CordovaPlugin {
      * @return                  True if the action was valid, false if not.
      */
   public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+      Log.i("DEVICE ACCOUNTS","Executing FUNCTION");
     if("getDeviceAccounts".equals(action)){
+
       List<Account> accounts = getAccounts(null);
       JSONArray result = formatResult(accounts);
       callbackContext.success(result);
+      result = new PluginResult(result);
+      callbackContext.sendPluginResult(result);
       return true;
     } else if("getDeviceAccountsByType".equals(action)){
       final String type = args.getString(0);
       List<Account> accounts = getAccounts(type);
       JSONArray result = formatResult(accounts);
       callbackContext.success(result);
+      result = new PluginResult(result);
+      callbackContext.sendPluginResult(result);
       return true;
     } else {
       callbackContext.error("DeviceAccounts." + action + " is not a supported function. Avaiable functions are getDeviceAccounts() and getDeviceAccountsByType(String type) !");
